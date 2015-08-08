@@ -1,0 +1,801 @@
+// This program allows the user to choose an option that will call a function
+// Dealing with percentages or conversions
+
+// Header Files
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+//Function prototypes
+// Menu prototypes
+int menu();
+void subMenuPerc();
+void subMenuConv();
+// Percentage prototypes
+void tipCalculator();
+void savingsFund();
+void billSplitCalc();
+void taxCalc();
+void discountCalc();
+
+// Converter prototypes
+void lengthConv();
+void liquidUnitConv();
+void massConv();
+void lengthDisplay(double);
+void liquidDisplay(double);
+void massDisplay(double);
+
+int main()
+{
+	cout << " ***************************************" << endl;
+	cout << " Percentage/Conversion Calculator v2.0.1" << endl;
+
+
+
+
+	int choice=0;
+	while (choice!=3)
+	{
+		choice=menu();
+
+	}
+
+
+	return 0;
+}
+
+// Menu/Sub-Menu Functions
+int menu()
+{
+	int c=0;
+	while (c<1||c>3)
+	{
+		cout << " Enter an option shown" << endl;
+		cout << "---------------------------------------" << endl;
+		cout << " Option 1: Percentage Calculation Menu" << endl;
+		cout << " Option 2: Conversion Calculation Menu" << endl;
+		cout << " Option 3: Quit" << endl;
+		cout << "---------------------------------------" << endl;
+		cin >> c;
+		if (c==1)
+		{
+			cout << "Option 1: Percentage Calculation Menu" << endl;
+			cout << "Loading..." << endl;
+			_sleep(3000);
+			subMenuPerc();
+		}
+		else if (c==2)
+		{
+			cout << " Option 2: Conversion Calculation Menu" << endl;
+			cout << "Loading..." << endl;
+			_sleep(3000);
+			subMenuConv();
+		}
+		else if (c==3)
+		{
+			cout << "Exiting program" << endl;
+			_sleep(3500);
+			exit(0);
+		}
+		else
+		{
+			cout << "ERROR: INVALID OPTION ENTERED" << endl;
+		}
+	}
+	system("CLS");
+	return c;
+}
+void subMenuConv()
+{
+	int choice=0;
+	while (choice <1||choice>4)
+	{
+		cout << " Enter an option" << endl;
+		cout << "------------------------------------" << endl;
+		cout << " Option 1: Length Converter" << endl;
+		cout << " Option 2: Liquid Unit Converter" << endl;
+		cout << " Option 3: Mass Converter" << endl;
+		cout << " Option 4: Quit" << endl;
+		cout << "------------------------------------" << endl;
+
+		cin >> choice;
+		if (choice == 1)
+		{
+			cout << " Option 1: Length Converter" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			lengthConv();
+		}
+		else if (choice == 2)
+		{
+			cout << " Option 2: Liquid Unit Converter" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			liquidUnitConv();
+		}
+		else if (choice == 3)
+		{
+			cout << " Option 3: Mass Converter" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			massConv();
+		}
+		else if (choice == 4)
+		{
+			cout << " Option 4: Quit" << endl;
+			cout << "Exiting program..." << endl;
+			_sleep(2000);
+			exit(0);
+		}
+		else
+		{
+			cout << "ERROR:INVALID OPTION" << endl;
+		}
+
+	}
+	system("CLS");
+}
+void subMenuPerc()
+{
+
+	int choice=0;
+
+		while (choice <1||choice>6)
+	{
+	cout << " Enter an Option" << endl;
+	cout << "---------------------------------" << endl;
+	cout << " Option 1: Tip Calculator" << endl;
+	cout << " Option 2: Savings Fund" << endl;
+	cout << " Option 3: Bill Split Calculator" << endl;
+	cout << " Option 4: Sales Tax Calculator" << endl;
+	cout << " Option 5: Discount Calculator" << endl;
+	cout << " Option 6: Quit" << endl;
+	cout << "---------------------------------" << endl;
+
+
+		cin >> choice;
+		if (choice == 1)
+		{
+			cout << " Option 1: Tip Calculator" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			tipCalculator();
+		}
+		else if (choice == 2)
+		{
+			cout << " Option 2: Savings Fund" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			savingsFund();
+		}
+		else if (choice == 3)
+		{
+			cout << " Option 3: Bill Split Calculator" << endl;
+			cout << " Loading..." << endl;
+			_sleep(2000);
+			billSplitCalc();
+		}
+		else if (choice == 4)
+		{
+			cout << " Option 4: Tax Calculator" << endl;
+			cout << "Loading..." << endl;
+			_sleep(2000);
+			taxCalc();
+		}
+		else if (choice == 5)
+		{
+			cout << " Option 5: Discount Calculator" << endl;
+			cout << "Loading..." << endl;
+			_sleep(2000);
+			discountCalc();
+		}
+		else if (choice == 6)
+		{
+			cout << " Option 6: Quit" << endl;
+			cout << "Exiting program..." << endl;
+			_sleep(2000);
+			exit(0);
+		}
+		else
+		{
+			cout << "ERROR:INVALID OPTION" << endl;
+		}
+
+	}
+system("CLS");
+}
+
+// Conversion Definitions
+void lengthConv()
+{
+	double length;
+	cout << " Enter a length in any Type of measurement" << endl;
+	cin >> length;
+	cout <<"Set Screen Width to 129"<<endl;
+	system("Pause");
+	cout << endl <<"Conversion in progress" << endl;
+	_sleep(3000);
+	system("CLS");
+	lengthDisplay(length);
+}
+
+void liquidUnitConv()
+{
+	double liquidUnits;
+	cout << "Enter amount of liquid units" << endl;
+	cin >> liquidUnits;
+	cout <<"Set Screen Width to 205"<<endl;
+	system("Pause");
+	cout << endl <<"Conversion in progress" << endl;
+	_sleep(3000);
+	system("CLS");
+	liquidDisplay(liquidUnits);
+}
+
+void massConv()
+{
+	double massUnits;
+	cout << "Enter mass units" << endl;
+	cin >> massUnits;
+	cout << "Conversion in progress" << endl;
+	_sleep(3000);
+	system("CLS");
+	massDisplay(massUnits);
+}
+
+void lengthDisplay(double l)
+{
+	//Inch Conversions
+	double iToF=l / 12;
+	double iToY=l / 36;
+	double iToM=l * .0000157;
+	double iToFa=l*.0138;
+	double iToNM=l*.0000157;
+	double iTomm=l*25.4;
+	double iTocm=l*2.54;
+	double iTodm=l*.254;
+	double iTohm=l*.000254;
+	double iTokm=l*.0000254;
+	//Foot Conversions
+	double fToI=l*12;
+	double fToY=l/3;
+	double fToM=l/5280;
+	double fToFa=l/6;
+	double fToNM=l/6076.12;
+	double fTomm=l*304.8;
+	double fTocm=l*30.48;
+	double fTodm=l*.3048;
+	double fTohm=l/328.08;
+	double fTokm=l/3280.84;
+	//Yard Conversions
+	double yToI=l*36;
+	double yToF=l*3;
+	double yToM=l*.000568;
+	double yToFa=l*.5;
+	double yToNM=l*.000493;
+	double yTomm=l*914.4;
+	double yTocm=l*91.44;
+	double yTodm=l*.9144;
+	double yTohm=l*.009144;
+	double yTokm=l*.0009144;
+	//Mile Conversions
+	double mToI=l*63360;
+	double mToF=l*5280;
+	double mToY=l*1860;
+	double mToFa=l*880;
+	double mToNM=l*.868976;
+	double mTomm=l*1609344;
+	double mTocm=l*160934;
+	double mTodm=l*1609.34;
+	double mTohm=l*16.09344;
+	double mTokm=l*1.60934;
+	//Fathom Conversions
+	double FaToI=l*72;
+	double FaToF=l*6;
+	double FaToY=l*2;
+	double FaToM=l*.001136;
+	double FaToNM=l*.000987;
+	double FaTomm=l*1828.8;
+	double FaTocm=l*182.88;
+	double FaTodm=l*18.288;
+	double FaTohm=l*.018288;
+	double FaTokm=l*.001828;
+	//Nautical Miles Conversions
+	double NMToI=l*72913.4;
+	double NMToF=l*6076.12;
+	double NMToY=l*2025.37;
+	double NMToM=l*1.15;
+	double NMToFa=l*1012.68;
+	double NMTomm=l*1852000;
+	double NMTocm=l*185200;
+	double NMTodm=l*18520;
+	double NMTohm=l*18.52;
+	double NMTokm=l*1.852;
+	//Millimeters Conversions
+	double mmToI=l*.0393;
+	double mmToF=l*.0032;
+	double mmToY=l*.00109;
+	double mmToM=l*.00000062;
+	double mmToFa=l*.000546;
+	double mmToNM=l*.00000057;
+	double mmTocm=l*.1;
+	double mmTodm=l*.01;
+	double mmTohm=l*.00001;
+	double mmTokm=l*.000001;
+	//Centimeters Conversions
+	double cmToI=l*.393;
+	double cmToF=l*.032;
+	double cmToY=l*.0109;
+	double cmToM=l*.00000621;
+	double cmToFa=l*.00546;
+	double cmToNM=l*.00000539;
+	double cmTomm=l*10;
+	double cmTodm=l*.1;
+	double cmTohm=l*.0001;
+	double cmTokm=l*.00001;
+	//Meters Conversions
+	double dmToI=l*39.37;
+	double dmToF=l*3.937;
+	double dmToY=l*1.093;
+	double dmToM=l*.00006213;
+	double dmToFa=l*.5468;
+	double dmToNM=l*.0005399;
+	double dmTomm=l*1000;
+	double dmTocm=l*100;
+	double dmTohm=l*.01;
+	double dmTokm=l*.001;
+	//Hectameters Conversions
+	double hmToI=l*3937;
+	double hmToF=l*328.08;
+	double hmToY=l*109.3;
+	double hmToM=l*.0621;
+	double hmToFa=l*54.644;
+	double hmToNM=l*.05399;
+	double hmTomm=l*100000;
+	double hmTocm=l*10000;
+	double hmTodm=l*100;
+	double hmTokm=l*.1;
+	//Kilometers Conversions
+	double kmToI=l*39370;
+	double kmToF=l*3288.4;
+	double kmToY=l*1093.6;
+	double kmToM=l*.621;
+	double kmToFa=l*546.8;
+	double kmToNM=l*.5399;
+	double kmTomm=l*1000000;
+	double kmTocm=l*100000;
+	double kmTodm=l*1000;
+	double kmTohm=l*10;
+
+	//Screen length is 128
+	cout << setprecision(2) << left << showpoint<< scientific;
+	cout << "--------------------------------------------------------------------------------" << endl;
+	cout << "Result >|  Inches |   Feet  |  Yards  |  Miles  |  Fathoms| N.Miles |   Mm    |   Cm    |    M    |    Hm    |  Km   |"<< endl;
+	cout << "Initial/|-----------------------------------------------------------------------" << endl;
+	
+	cout << "Inches| |---------|"<<setw(8)<<iToF<<"|"<<setw(8)<<iToY<<"|"<<setw(8)<<iToM<<"|"<<setw(8)<<iToFa<<"|";
+	cout << setw(8)<<iToNM<<"|"<<setw(8)<<iTomm<<"|"<<setw(8)<<iTocm<<"|"<<setw(8)<<iTodm<<"|"<<setw(8)<<iTohm<<"|"<<setw(8)<<iTokm<<"|"<<endl;
+	
+	cout << "Feet  | |"<<setw(8)<<fToI<<"|---------|"<<setw(8)<<fToY<<"|"<<setw(8)<<fToM<<"|"<<setw(8)<<fToFa<<"|";
+	cout << setw(8)<<fToNM<<"|"<<setw(8)<<fTomm<<"|"<<setw(8)<<fTocm<<"|"<<setw(8)<<fTodm<<"|"<<setw(8)<<fTohm<<"|"<<setw(8)<<iTokm<<"|"<<endl;
+	
+	cout << "Yards | |"<<setw(8)<<yToI<<"|"<<setw(8)<<yToF<<"|---------|"<<setw(8)<<yToM<<"|"<<setw(8)<<yToFa<<"|"<<setw(8)<<yToNM<<"|"
+		<<setw(8)<<yTomm<<"|"<<setw(8)<<yTocm<<"|"<<setw(8)<<yTodm<<"|"<<setw(8)<<yTohm<<"|"<<setw(8)<<yTokm<<"|"<<endl;
+	
+	cout << "Miles | |"<<setw(8)<<mToI<<"|"<<setw(8)<<mToF<<"|"<<setw(8)<<mToY<<"|---------|"<<setw(8)<<mToFa<<"|"<<setw(8)<<mToNM<<"|"
+		<<setw(8)<<mTomm<<"|"<<setw(8)<<mTocm<<"|"<<setw(8)<<mTodm<<"|"<<setw(8)<<mTohm<<"|"<<setw(8)<<mTokm<<"|"<<endl;
+	
+	cout << "Fathom| |"<<setw(8)<<FaToI<<"|"<<setw(8)<<FaToF<<"|"<<setw(8)<<FaToY<<"|"<<setw(8)<<FaToM<<"|---------|"
+		<<setw(8)<<FaToNM<<"|"<<setw(8)<<FaTomm<<"|"<<setw(8)<<FaTocm<<"|"<<setw(8)<<FaTodm<<"|"<<setw(8)<<FaTohm<<"|"<<setw(8)<<FaTokm<<"|"<<endl;
+	
+	cout << "N.Mile| |"<<setw(8)<<NMToI<<"|"<<setw(8)<<NMToF<<"|"<<setw(8)<<NMToY<<"|"<<setw(8)<<NMToM<<"|"<<setw(8)<<NMToFa<<
+	"|---------|"<<setw(8)<<NMTomm<<"|"<<setw(8)<<NMTocm<<"|"<<setw(8)<<NMTodm<<"|"<<setw(8)<<NMTohm<<"|"<<setw(8)<<NMTokm<<"|"<<endl;
+	
+	cout << "  Mm  | |"<<setw(8)<<mmToI<<"|"<<setw(8)<<mmToF<<"|"<<setw(8)<<mmToY<<"|"<<setw(8)<<mmToM<<"|"<<setw(8)<<mmToFa<<"|"<<setw(8)<<mmToNM<<
+		"|---------|"<<setw(8)<<mmTocm<<"|"<<setw(8)<<mmTodm<<"|"<<setw(8)<<mmTohm<<"|"<<setw(8)<<mmTokm<<"|"<<endl;
+	
+	cout << "  Cm  | |"<<setw(8)<<cmToI<<"|"<<setw(8)<<cmToF<<"|"<<setw(8)<<cmToY<<"|"<<setw(8)<<cmToM<<"|"<<setw(8)<<cmToFa<<"|"
+		<<setw(8)<<cmToNM<<"|"<<setw(8)<<cmTomm<<"|---------|"<<setw(8)<<cmTodm<<"|"<<setw(8)<<cmTohm<<"|"<<setw(8)<<cmTokm<<"|"<<endl;
+	
+	cout << "  M   | |"<<setw(8)<<dmToI<<"|"<<setw(8)<<dmToF<<"|"<<setw(8)<<dmToY<<"|"<<setw(8)<<dmToM<<"|"<<setw(8)<<dmToFa<<"|"
+		<<setw(8)<<dmToNM<<"|"<<setw(8)<<dmTomm<<"|"<<setw(8)<<dmTocm<<"|---------|"<<setw(8)<<dmTohm<<"|"<<setw(8)<<dmTokm<<"|"<<endl;
+	
+	cout << "  Hm  | |"<<setw(8)<<hmToI<<"|"<<setw(8)<<hmToF<<"|"<<setw(8)<<hmToY<<"|"<<setw(8)<<hmToM<<"|"<<setw(8)<<hmToFa<<"|"
+		<<setw(8)<<hmToNM<<"|"<<setw(8)<<hmTomm<<"|"<<setw(8)<<hmTocm<<"|"<<setw(8)<<hmTodm<<"|---------|"<<setw(8)<<hmTokm<<"|"<<endl;
+	
+	cout << "  Km  | |"<<setw(8)<<kmToI<<"|"<<setw(8)<<kmToF<<"|"<<setw(8)<<kmToY<<"|"<<setw(8)<<kmToM<<"|"<<setw(8)<<kmToFa<<"|"
+		<<setw(8)<<kmToNM<<"|"<<setw(8)<<kmTomm<<"|"<<setw(8)<<kmTocm<<"|"<<setw(8)<<kmTodm<<"|"<<setw(8)<<kmTohm<<"|---------|"<<endl;
+	cout << endl;
+	system("pause");
+	system("CLS");
+}
+void liquidDisplay(double l)
+{
+// FluidOunces Quarts Gallons Liters(all variations) Cups Pints Gill Teaspoon Tablespoon Peck
+// FluidOunce Conversions
+	double FOToTeaS=l*6;
+	double FOToTableS=l*2;
+	double FOToG=l*.25;
+	double FOToC=l*.125;
+	double FOToPi=l*.0625;
+	double FOToQ=l*.03125;
+	double FOToGal=l*.0078125;
+	double FOToPe=l*0.0033569022;
+	double FOToml=l*29.5735;
+	double FOTocl=l*2.95735;
+	double FOTodcl=l*.295735;
+	double FOTol=l*.0295735;
+	double FOTodkl=l*.00295735;
+	double FOTohl=l*.000295735;
+	double FOTokl=l*.000029573;
+	
+// Quart Conversions
+	double qToTeaS=l*192;
+	double qToTableS=l*64;
+	double qToFo=l*32;
+	double qToG=l*16;
+	double qToC=l*8;
+	double qToPi=l*2;
+	double qToGal=l*.25;
+	double qToPe=l*0.10742087;
+	double qToml=l*946.353;
+	double qTocl=l*94.6353;
+	double qTodcl=l*9.46353;
+	double qTol=l*.946353;
+	double qTodkl=l*.094635;
+	double qTohl=l*.009463;
+	double qTokl=l*.000946;
+
+// Gallon Conversions
+	double GalToTeaS=l*768;
+	double GalToTableS=l*256;
+	double GalToFo=l*128;
+	double GalToG=l*32;
+	double GalToC=l*16;
+	double GalToPi=l*4;
+	double GalToQ=l*2;
+	double GalToPe=l*0.429683481;
+	double GalToml=l*3785.41;
+	double GalTocl=l*378.541;
+	double GalTodcl=l*37.8541;
+	double GalTol=l*3.78541;
+	double GalTodkl=l*.378541;
+	double GalTohl=l*.037854;
+	double GalTokl=l*.003785;	
+
+// MilliLiter Conversions
+	double mlToTeaS=l*0.202884;
+	double mlToTableS=l*0.067628;
+	double mlToFo=l*.033814022;
+	double mlToG=l*.008453505;
+	double mlToC=l*.004226752;
+	double mlToPi=l*.000211337;
+	double mlToQ=l*.000105668;
+	double mlToGal=l*.000264172;
+	double mlToPe=l*.000113510;
+	double mlTocl=l*0.1;
+	double mlTodcl=l*.01;
+	double mlTol=l*.001;
+	double mlTodkl=l*.0001;
+	double mlTohl=l*.00001;
+	double mlTokl=l*.000001;
+	
+// CentiLiter Conversions
+	double clToTeaS=l*2.0288413;
+	double clToTableS=l*0.67628;
+	double clToFo=l*.338140227;
+	double clToG=l*.084535056;
+	double clToC=l*.042267528;
+	double clToPi=l*.002113376;
+	double clToQ=l*.001056688;
+	double clToGal=l*.002641720;
+	double clToPe=l*.001135103;
+	double clToml=l*10;
+	double clTodcl=l*.1;
+	double clTol=l*.01;
+	double clTodkl=l*.001;
+	double clTohl=l*.0001;
+	double clTokl=l*.00001;
+		
+// DeciLiter Conversions
+	double dclToTeaS=l*20.288413;
+	double dclToTableS=l*6.7628;
+	double dclToFo=l*3.38140227;
+	double dclToG=l*.845350568;
+	double dclToC=l*.422675284;
+	double dclToPi=l*.021133764;
+	double dclToQ=l*.010566882;
+	double dclToGal=l*.026417205;
+	double dclToPe=l*.011351036;
+	double dclToml=l*100;
+	double dclTocl=l*10;
+	double dclTol=l*.1;
+	double dclTodkl=l*.01;
+	double dclTohl=l*.001;
+	double dclTokl=l*.0001;
+
+// Liter Conversions
+	double lToTeaS=l*202.88413;
+	double lToTableS=l*67.628;
+	double lToFo=l*33.8140227;
+	double lToG=l*8.45350568;
+	double lToC=l*4.22675284;
+	double lToPi=l*.211337642;
+	double lToQ=l*.105668821;
+	double lToGal=l*.264172052;
+	double lToPe=l*.113510367;
+	double lToml=l*1000;
+	double lTocl=l*100;
+	double lTodcl=l*10;
+	double lTodkl=l*.1;
+	double lTohl=l*.01;
+	double lTokl=l*.001;
+
+// DekaLiter Conversions
+	double dklToTeaS=l*2028.8413;
+	double dklToTableS=l*676.28;
+	double dklToFo=l*338.140227;
+	double dklToG=l*84.5350568;
+	double dklToC=l*42.2675284;
+	double dklToPi=l*2.11337642;
+	double dklToQ=l*1.05668821;
+	double dklToGal=l*2.64172052;
+	double dklToPe=l*1.13510367;
+	double dklToml=l*10000;
+	double dklTocl=l*1000;
+	double dklTodcl=l*100;
+	double dklTol=l*10;
+	double dklTohl=l*.1;
+	double dklTokl=l*.01;
+
+// HectoLiter Conversions
+	double hlToTeaS=l*20288.413;
+	double hlToTableS=l*6762.8;
+	double hlToFo=l*3381.40227;
+	double hlToG=l*845.350568;
+	double hlToC=l*422.675284;
+	double hlToPi=l*21.1337642;
+	double hlToQ=l*10.5668821;
+	double hlToGal=l*26.4172052;
+	double hlToPe=l*11.3510367;
+	double hlToml=l*100000;
+	double hlTocl=l*10000;
+	double hlTodcl=l*1000;
+	double hlTol=l*100;
+	double hlTodkl=l*10;
+	double hlTokl=l*.1;
+
+// KiloLiter Conversions
+	double klToTeaS=l*202884.136;
+	double klToTableS=l*67628;
+	double klToFo=l*33814.0227;
+	double klToG=l*8453.50568;
+	double klToC=l*4226.75284;
+	double klToPi=l*211.337642;
+	double klToQ=l*105.668821;
+	double klToGal=l*264.172052;
+	double klToPe=l*113.510367;
+	double klToml=l*1000000;
+	double klTocl=l*100000;
+	double klTodcl=l*10000;
+	double klTol=l*1000;
+	double klTodkl=l*100;
+	double klTohl=l*10;
+
+// Cup Conversions
+	double cToTeaS=l*48;
+	double cToTableS=l*16;
+	double cToFo=l*8;
+	double cToG=l*2;
+	double cToPi=l*.5;
+	double cToQ=l*.25;
+	double cToGal=l*.0625;
+	double cToPe=l*0.0268552176;
+	double cToml=l*236.588;
+	double cTocl=l*23.6588;
+	double cTodcl=l*2.36588;
+	double cTol=l*.236588;
+	double cTodkl=l*.023658;
+	double cTohl=l*.002365;
+	double cTokl=l*.000236;
+
+// Pint Conversions
+	double piToTeaS=l*96;
+	double piToTableS=l*32;
+	double piToFo=l*16;
+	double piToG=l*8;
+	double piToC=l*4;
+	double piToQ=l*.5;
+	double piToGal=l*.125;
+	double piToPe=l*0.0537104352;
+	double piToml=l*473.176;
+	double piTocl=l*47.3176;
+	double piTodcl=l*4.73176;
+	double piTol=l*.473176;
+	double piTodkl=l*.047317;
+	double piTohl=l*.004731;
+	double piTokl=l*.000473;
+
+// Gill Conversions
+	double gToTeaS=l*24;
+	double gToTableS=l*8;
+	double gToFo=l*4;
+	double gToC=l*.5;
+	double gToPi=l*.25;
+	double gToQ=l*.125;
+	double gToGal=l*.03125;
+	double gToPe=l*0.0134276088;
+	double gToml=l*118.294118;
+	double gTocl=l*11.8294118;
+	double gTodcl=l*1.18294118;
+	double gTol=l*.118294118;
+	double gTodkl=l*.011829411;
+	double gTohl=l*.001182941;
+	double gTokl=l*.000118294;
+
+// Teaspoon Conversions
+	
+	double TeasToTableS=l*.33333;
+	double TeasToFo=l*.166667;
+	double TeasToG=l*0.0416666667;
+	double TeasToC=l*0.020833;
+	double TeasToPi=l*0.0104167;
+	double TeasToQ=l*0.00520833;
+	double TeasToGal=l*.00130208;
+	double TeasToPe=l*0.0005594837;
+	double TeasToml=l*4.92892;
+	double TeasTocl=l*.492892;
+	double TeasTodcl=l*.0492892;
+	double TeasTol=l*.004928;
+	double TeasTodkl=l*.000492;
+	double TeasTohl=l*.0000492;
+	double TeasTokl=l*.0000049;
+
+// Tablespoon Conversions
+	double TableSToTeaS=l*3;
+	double TableSToFo=l*.5;
+	double TableSToG=l*.125;
+	double TableSToC=l*.0625;
+	double TableSToPi=l*.03125;
+	double TableSToQ=l*.015625;
+	double TableSToGal=l*.00390625;
+	double TableSToPe=l*0.0016784511;
+	double TableSToml=l*14.7868;
+	double TableSTocl=l*1.47868;
+	double TableSTodcl=l*.147868;
+	double TableSTol=l*.0147868;
+	double TableSTodkl=l*.001478;
+	double TableSTohl=l*.0001478;
+	double TableSTokl=l*.0000147;
+
+// Peck Conversions
+	double peToTeaS=l*1787.36217;
+	double peToTableS=l*595.78739;
+	double peToFo=l*297.893695;
+	double peToG=l*74.4734238;
+	double peToC=l*37.2367119;
+	double peToPi=l*18.6183559;
+	double peToQ=l*9.30917797;
+	double peToGal=l*2.32729449;
+	double peToml=l*8809.768;
+	double peTocl=l*880.9768;
+	double peTodcl=l*88.09768;
+	double peTol=l*8.809768;
+	double peTodkl=l*.8809768;
+	double peTohl=l*.0880976;
+	double peTokl=l*.0088097;
+
+// Display
+
+cout << setprecision(2) << left;
+cout << "|**********||End Units ||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------|"<<endl;
+cout << "|**********||Tea Spoons||TableSpoon||FluidOunce||---Gill---||---Cups---||---Pint---||--Quarts--||--Gallon--||---Peck---||----mL----||----cl----||--deciL---||----L-----||--dekaL---||----hL----||----kL----|"<<endl;
+cout << "|Init. Unit||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------|"<<endl;
+
+cout << "|Tea Spoon ||----------||"<<setw(10)<<TeasToTableS<<"||"<<setw(10)<<TeasToFo<<"||"<<setw(10)<<TeasToG<<"||"<<setw(10)<<TeasToC<<"||"<<setw(10)<<TeasToPi<<"||"<<setw(10)<<TeasToQ<<"||"<<setw(10)<<TeasToGal<<"||"
+	<<setw(10)<<TeasToPe<<"||"<<setw(10)<<TeasToml<<"||"<<setw(10)<<TeasTocl<<"||"<<setw(10)<<TeasTodcl<<"||"<<setw(10)<<TeasTol<<"||"<<setw(10)<<TeasTodkl<<"||"<<setw(10)<<TeasTohl<<"||"<<setw(10)<<TeasTokl<<"|"<<endl;
+
+cout << "|TableSpoon||"<<setw(10)<<TableSToTeaS<<"||----------||"<<setw(10)<<TableSToFo<<"||"<<setw(10)<<TableSToG<<"||"<<setw(10)<<TableSToC<<"||"<<setw(10)<<TableSToPi<<"||"<<setw(10)<<TableSToTeaS<<"||"<<setw(10)<<TableSToGal<<"||"<<setw(10)<<TableSToPe<<"||"<<setw(10)<<TableSToml<<"||"
+	<<setw(10)<<TableSTocl<<"||"<<setw(10)<<TableSTodcl<<"||"<<setw(10)<<TableSTol<<"||"<<setw(10)<<TableSTodkl<<"||"<<setw(10)<<TableSTohl<<"||"<<setw(10)<<TableSTokl<<"|"<<endl;
+
+cout << "|FluidOunce||"<<setw(10)<<FOToTeaS<<"||"<<setw(10)<<FOToTableS<<"||----------||"<<setw(10)<<FOToG<<"||"<<setw(10)<<FOToC<<"||"<<setw(10)<<FOToPi<<"||"<<setw(10)<<FOToQ<<"||"<<setw(10)<<FOToGal<<"||"<<setw(10)<<FOToPe<<"||"<<setw(10)<<FOToml<<"||"
+	<<setw(10)<<FOTocl<<"||"<<setw(10)<<FOTodcl<<"||"<<setw(10)<<FOTol<<"||"<<setw(10)<<FOTodkl<<"||"<<setw(10)<<FOTohl<<"||"<<setw(10)<<FOTokl<<"|"<<endl;
+
+cout << "|---Gill---||"<<setw(10)<<gToTeaS<<"||"<<setw(10)<<gToTableS<<"||"<<setw(10)<<gToFo<<"||----------||"<<setw(10)<<gToC<<"||"<<setw(10)<<gToPi<<"||"<<setw(10)<<gToQ<<"||"<<setw(10)<<gToGal<<"||"<<setw(10)<<gToPe<<"||"<<setw(10)<<gToml<<"||"
+	<<setw(10)<<gTocl<<"||"<<setw(10)<<gTodcl<<"||"<<setw(10)<<gTol<<"||"<<setw(10)<<gTodkl<<"||"<<setw(10)<<gTohl<<"||"<<setw(10)<<gTokl<<"|"<<endl;;
+
+cout << "|---Cups---||"<<setw(10)<<cToTeaS<<"||"<<setw(10)<<cToTableS<<"||"<<setw(10)<<cToFo<<"||"<<setw(10)<<cToG<<"||----------||"<<setw(10)<<cToPi<<"||"<<setw(10)<<cToQ<<"||"<<setw(10)<<cToGal<<"||"<<setw(10)<<cToPe<<"||"<<setw(10)<<cToml<<"||"
+	<<setw(10)<<cTocl<<"||"<<setw(10)<<cTodcl<<"||"<<setw(10)<<cTol<<"||"<<setw(10)<<cTodkl<<"||"<<setw(10)<<cTohl<<"||"<<setw(10)<<cTokl<<"|"<<endl;
+
+cout << "|---Pint---||"<<setw(10)<<piToTeaS<<"||"<<setw(10)<<piToTableS<<"||"<<setw(10)<<piToFo<<"||"<<setw(10)<<piToG<<"||"<<setw(10)<<piToC<<"||----------||"<<setw(10)<<piToQ<<"||"<<setw(10)<<piToGal<<"||"<<setw(10)<<piToPe<<"||"<<setw(10)<<piToml<<"||"
+	<<setw(10)<<piTocl<<"||"<<setw(10)<<piTodcl<<"||"<<setw(10)<<piTol<<"||"<<setw(10)<<piTodkl<<"||"<<setw(10)<<piTohl<<"||"<<setw(10)<<piTokl<<"|"<<endl;
+
+cout << "|--Quarts--||"<<setw(10)<<qToTeaS<<"||"<<setw(10)<<qToTableS<<"||"<<setw(10)<<qToFo<<"||"<<setw(10)<<qToG<<"||"<<setw(10)<<qToC<<"||"<<setw(10)<<qToPi<<"||----------||"<<setw(10)<<qToGal<<"||"<<setw(10)<<qToPe<<"||"<<setw(10)<<gToml<<"||"
+	<<setw(10)<<gTocl<<"||"<<setw(10)<<gTodcl<<"||"<<setw(10)<<gTol<<"||"<<setw(10)<<gTodkl<<"||"<<setw(10)<<gTohl<<"||"<<setw(10)<<gTokl<<"|"<<endl;
+
+cout << "|--Gallon--||"<<setw(10)<<GalToTeaS<<"||"<<setw(10)<<GalToTableS<<"||"<<setw(10)<<GalToFo<<"||"<<setw(10)<<GalToG<<"||"<<setw(10)<<GalToC<<"||"<<setw(10)<<GalToPi<<"||"<<setw(10)<<GalToQ<<"||----------||"<<setw(10)<<GalToPe<<"||"<<setw(10)<<GalToml<<"||"
+	<<setw(10)<<GalTocl<<"||"<<setw(10)<<GalTodcl<<"||"<<setw(10)<<GalTol<<"||"<<setw(10)<<GalTodkl<<"||"<<setw(10)<<GalTohl<<"||"<<setw(10)<<GalTokl<<"|"<<endl;
+
+cout << "|---Peck---||"<<setw(10)<<peToTeaS<<"||"<<setw(10)<<peToTableS<<"||"<<setw(10)<<peToFo<<"||"<<setw(10)<<peToG<<"||"<<setw(10)<<peToC<<"||"<<setw(10)<<peToPi<<"||"<<setw(10)<<peToQ<<"||"<<setw(10)<<peToGal<<"||----------||"<<setw(10)<<peToml<<"||"
+	<<setw(10)<<peTocl<<"||"<<setw(10)<<peTodcl<<"||"<<setw(10)<<peTol<<"||"<<setw(10)<<peTodkl<<"||"<<setw(10)<<peTohl<<"||"<<setw(10)<<peTokl<<"|"<<endl;
+
+cout << "|----mL----||"<<setw(10)<<mlToTeaS<<"||"<<setw(10)<<mlToTableS<<"||"<<setw(10)<<mlToFo<<"||"<<setw(10)<<mlToG<<"||"<<setw(10)<<mlToC<<"||"<<setw(10)<<mlToPi<<"||"<<setw(10)<<mlToQ<<"||"<<setw(10)<<mlToGal<<"||"<<setw(10)<<mlToPe<<"||----------||"
+	<<setw(10)<<mlTocl<<"||"<<setw(10)<<mlTodcl<<"||"<<setw(10)<<mlTol<<"||"<<setw(10)<<mlTodkl<<"||"<<setw(10)<<mlTohl<<"||"<<setw(10)<<mlTokl<<"|"<<endl;
+
+cout << "|----cL----||"<<setw(10)<<clToTeaS<<"||"<<setw(10)<<clToTableS<<"||"<<setw(10)<<clToFo<<"||"<<setw(10)<<clToG<<"||"<<setw(10)<<clToC<<"||"<<setw(10)<<clToPi<<"||"<<setw(10)<<clToQ<<"||"<<setw(10)<<clToGal<<"||"<<setw(10)<<clToPe<<"||"<<setw(10)<<clToml<<"||----------||"
+	<<setw(10)<<clTodcl<<"||"<<setw(10)<<clTol<<"||"<<setw(10)<<clTodkl<<"||"<<setw(10)<<clTohl<<"||"<<setw(10)<<clTokl<<"|"<<endl;
+
+cout << "|--deciL---||"<<setw(10)<<dclToTeaS<<"||"<<setw(10)<<dclToTableS<<"||"<<setw(10)<<dclToFo<<"||"<<setw(10)<<dclToG<<"||"<<setw(10)<<dclToC<<"||"<<setw(10)<<dclToPi<<"||"<<setw(10)<<dclToQ<<"||"<<setw(10)<<dclToGal<<"||"<<setw(10)<<dclToPe<<"||"<<setw(10)<<dclToml<<"||"
+	<<setw(10)<<dclTocl<<"||----------||"<<setw(10)<<dclTol<<"||"<<setw(10)<<dclTodkl<<"||"<<setw(10)<<dclTohl<<"||"<<setw(10)<<dclTokl<<"|"<<endl;
+
+cout << "|----L-----||"<<setw(10)<<lToTeaS<<"||"<<setw(10)<<lToTableS<<"||"<<setw(10)<<lToFo<<"||"<<setw(10)<<lToG<<"||"<<setw(10)<<lToC<<"||"<<setw(10)<<lToPi<<"||"<<setw(10)<<lToQ<<"||"<<setw(10)<<lToGal<<"||"<<setw(10)<<lToPe<<"||"<<setw(10)<<lToml<<"||"
+	<<setw(10)<<lTocl<<"||"<<setw(10)<<lTodcl<<"||----------||"<<setw(10)<<lTodkl<<"||"<<setw(10)<<lTohl<<"||"<<setw(10)<<lTokl<<"|"<<endl;
+
+cout << "|--dekaL---||"<<setw(10)<<dklToTeaS<<"||"<<setw(10)<<dklToTableS<<"||"<<setw(10)<<dklToFo<<"||"<<setw(10)<<dklToG<<"||"<<setw(10)<<dklToC<<"||"<<setw(10)<<dklToPi<<"||"<<setw(10)<<dklToQ<<"||"<<setw(10)<<dklToGal<<"||"<<setw(10)<<dklToPe<<"||"<<setw(10)<<dklToml<<"||"
+	<<setw(10)<<dklTocl<<"||"<<setw(10)<<dklTodcl<<"||"<<setw(10)<<dklTol<<"||----------||"<<setw(10)<<dklTohl<<"||"<<setw(10)<<dklTokl<<"|"<<endl;
+
+cout << "|----hL----||"<<setw(10)<<hlToTeaS<<"||"<<setw(10)<<hlToTableS<<"||"<<setw(10)<<hlToFo<<"||"<<setw(10)<<hlToG<<"||"<<setw(10)<<hlToC<<"||"<<setw(10)<<hlToPi<<"||"<<setw(10)<<hlToQ<<"||"<<setw(10)<<hlToGal<<"||"<<setw(10)<<hlToPe<<"||"<<setw(10)<<hlToml<<"||"
+	<<setw(10)<<hlTocl<<"||"<<setw(10)<<hlTodcl<<"||"<<setw(10)<<hlTol<<"||"<<setw(10)<<hlTodkl<<"||----------||"<<setw(10)<<hlTokl<<"|"<<endl;
+
+cout << "|----kL----||"<<setw(10)<<klToTeaS<<"||"<<setw(10)<<klToTableS<<"||"<<setw(10)<<klToFo<<"||"<<setw(10)<<klToG<<"||"<<setw(10)<<klToC<<"||"<<setw(10)<<klToPi<<"||"<<setw(10)<<klToQ<<"||"<<setw(10)<<klToGal<<"||"<<setw(10)<<klToPe<<"||"<<setw(10)<<klToml<<"||"
+	<<setw(10)<<klTocl<<"||"<<setw(10)<<klTodcl<<"||"<<setw(10)<<klTol<<"||"<<setw(10)<<klTodkl<<"||"<<setw(10)<<klTohl<<"||----------|"<<endl;
+
+system("pause");
+system("CLS");
+}
+void massDisplay(double m)
+{
+// Ounces Pounds Grams(all variations) Grains Carots
+}
+
+// Percentage Definitions
+void tipCalculator()
+{
+
+}
+void savingsFund()
+{
+
+}
+void billSplitCalc()
+{
+
+}
+void taxCalc()
+{
+	cout << showpoint<<left<<setprecision(2);
+
+		cout << "Sales Tax" << endl;
+		double price;
+		double subtotal;
+		double taxPerc;
+		double total;
+		double tax;
+		cout << "Enter your states Sales Tax Percentage(0.xx)" << endl;
+		cin >> taxPerc;
+		cout << "Enter the original price" << endl;
+		cin >> price;
+		cout << "Processing..." << endl;
+		tax=price*taxPerc;
+		subtotal=price;
+		total=subtotal+tax;
+		cout << "Displaying calculations" << endl;
+		cout << "------------------------------" << endl;
+		cout << "Listed Price: " << price << endl;
+		cout << "Subtotal:     " << subtotal << endl;
+		cout << "Tax:          " << tax << endl;
+		cout << "Total:        " << total << endl;
+		cout << "------------------------------" << endl;
+		system("Pause");
+		system("CLS");
+	
+}
+void discountCalc()
+{
+
+}
